@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: k8s-lerna-frontend-production-canary
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: k8s-lerna-frontend
+        environment: production
+        tier: frontend
+        track: canary

@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: k8s-lerna-ingress-production
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+spec:
+  tls:
+    - hosts:
+        - backend.production.k8s.lerna.tkvw.nl
+        - frontend.production.k8s.lerna.tkvw.nl
+      secretName: letsencrypt-staging
+  rules:
+    - host: backend.production.k8s.lerna.tkvw.nl
+      http:
+        paths:
+          - backend:
+              serviceName: echo1
+              servicePort: 80
+    - host: frontend.production.k8s.lerna.tkvw.nl
+      http:
+        paths:
+          - backend:
+              serviceName: echo2
+              servicePort: 80
