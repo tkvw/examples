@@ -5,6 +5,7 @@
     "lerna": "^3.8.0"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap"
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build"
   }
 }

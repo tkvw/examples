@@ -1,0 +1,9 @@
+version: "3"
+services:
+  www:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tkvw/k8s-lerna
+    ports:
+      - "8080:3000"

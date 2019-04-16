@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-printenv
-if [ "$1" = 'api' ]; then
-    cd ./api
-    exec node start.js
-fi
-if [ "$1" = 'client' ]; then 
-    cd ./client
+if [ "$1" = 'www' ]; then 
+    cd /app/packages/www
+    export NODE_ENV=production
     exec node ./.next/server
+fi
+if [ "$1" = 'api' ]; then
+    cd /app/packages/api
+    export NODE_ENV=production
+    exec node start.js
 fi
